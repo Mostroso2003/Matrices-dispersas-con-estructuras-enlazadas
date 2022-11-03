@@ -48,6 +48,9 @@ int search(int i, int j, slist* matrix);
 /* Asignar un valor en una posicion ixj de la matriz */
 void set_value(int i, int j, int x, slist* matrix);
 
+/* Funcion que realiza la suma de dos matrices del mismo tamanio */
+slist* suma_matrix(slist* matrix, slist* matrix2);
+
 /* Funcion para transponer un matriz */
 slist* transpose(slist* matrix);
 
