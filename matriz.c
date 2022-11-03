@@ -128,6 +128,7 @@ void print_matrix(slist* matrix)
         sptr = sptr->next;
         posY++;
     }
+    printf("\n");
 }
 
 /* Muestra la matriz en forma de lista */
