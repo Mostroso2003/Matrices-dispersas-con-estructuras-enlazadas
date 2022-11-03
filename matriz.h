@@ -33,9 +33,6 @@ slist* add_end_row(slist* matrix, slist* newr);
 /* Funcion para crear una matriz con n filas y m columnas */
 slist* new_matrix(slist* matrix, int n, int m);
 
-/* Funcion para crear una matriz con n filas y m columnas de forma automatica con valores entre 0 y 1 */
-slist* new_matrix_auto(slist* matrix, int n, int m);
-
 /* Muestra la matriz en la pantalla incluyendo los ceros */
 void print_matrix(slist* matrix);
 
