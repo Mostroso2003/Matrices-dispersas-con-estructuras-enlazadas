@@ -159,6 +159,7 @@ void print_matrix_trans(slist* matrix)
         printf("\n");
         ++posY;
     }
+    printf("\n");
 }
 
 /* Multiplica todos los elementos de la matriz por un numero e */
