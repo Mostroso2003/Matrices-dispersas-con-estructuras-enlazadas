@@ -75,6 +75,43 @@ void print_matrix(slist* matrix)
 {
     register int posX, posY = 0;
     slist* sptr = matrix;
+    while (posY < matrix->tam_y){
+        node* ptr = sptr->row;
+        posX = 0;
+        /* Pregunta si el puntero apunta hacia algun nodo, si no es asi entonces imprime cuantos ceros dependiendo del tamanio de la fila */
+        if (!ptr){
+            while (posX < matrix->tam_x){
+                printf("0 ");
+                posX++;
+            }
+        } else {
+            /* Bucle que se ejecuta */
+            while (ptr && posX < sptr->tam_x){
+                while (posX < ptr->posicion_x){
+                    printf("0 ");
+                    posX++;
+                }
+                printf("%d ",ptr->value);
+                ptr = ptr->next;
+                posX++;
+            }
+            while(posX < sptr->tam_x){
+                printf("0 ");
+                posX++;
+            }
+        }
+        printf("\n");
+        sptr = sptr->next;
+        posY++;
+    }
+    printf("\n");
+}
+
+/* Muestra la matriz en la pantalla incluyendo los ceros */
+void print_matrix_trans(slist* matrix)
+{
+    register int posX, posY = 0;
+    slist* sptr = matrix;
     while (sptr && sptr->row){
         while (posY < sptr->posicion_y) {
             posX = 0;
