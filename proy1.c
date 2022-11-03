@@ -100,10 +100,9 @@ int main(void)
             /* Multiplicar la matriz por un escalar */
             printf("Valor para multiplicar la matriz: ");
             scanf("%d",&x);
-            matriz_esc1 = prod_esc(x,matriz1,matriz_esc1);
 
             printf("\n");
-            print_matrix(matriz_esc1);
+            print_matrix(prod_esc(x,matriz1));
 
         /*Producto*/
         }else if(elec == 5){
