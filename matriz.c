@@ -311,7 +311,8 @@ slist* suma_matrix(slist* matrix, slist* matrix2)
     return matrix3;
 }
 
-slist* transpose(slist* matrix){
+slist* transpose(slist* matrix)
+{
     slist* matrix_trans=NULL;
     slist* f1, *prev_trans, *cur_trans;
     node* ptr;
