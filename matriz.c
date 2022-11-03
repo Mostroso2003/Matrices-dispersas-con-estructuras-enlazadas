@@ -179,7 +179,7 @@ slist* prod_esc(int e, slist* matrix)
     return matrix_res;
 }
 
-/* Busca el elemento de la matriz que esta en la fila i y la columna j */ 
+/* Busca el elemento de la matriz que esta en la fila i y la columna j */
 int search(int i, int j, slist* matrix)
 {
     register int posX = 0, posY = 0;
@@ -198,10 +198,9 @@ int search(int i, int j, slist* matrix)
         return 0;
     /* Bucle que recorrera la fila en la que se encuentra sptr hasta la posicion j */
     while (ptr->next && posX < j){
-        if (posX < ptr->posicion_x)
-            posX++;
+        if (ptr->posicion_x==j)
+            return ptr->value;
         ptr = ptr->next;
-        posX++;
     }
     if (ptr->posicion_x != j)
         return 0;
