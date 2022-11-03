@@ -75,7 +75,17 @@ void print_matrix(slist* matrix)
 {
     register int posX, posY = 0;
     slist* sptr = matrix;
-    while (posY < matrix->tam_y){
+    while (sptr && sptr->row){
+        while (posY < sptr->posicion_y) {
+            posX = 0;
+            while (posX < matrix->tam_x) {
+                printf("0 ");
+                posX++;
+            }
+            printf("\n");
+            ++posY;
+        }
+        ++posY;
         node* ptr = sptr->row;
         posX = 0;
         /* Pregunta si el puntero apunta hacia algun nodo, si no es asi entonces imprime cuantos ceros dependiendo del tamanio de la fila */
@@ -102,9 +112,16 @@ void print_matrix(slist* matrix)
         }
         printf("\n");
         sptr = sptr->next;
-        posY++;
     }
-    printf("\n");
+    while (posY < matrix->tam_y) {
+        posX = 0;
+        while (posX < matrix->tam_x) {
+            printf("0 ");
+            posX++;
+        }
+        printf("\n");
+        ++posY;
+    }
 }
 
 /* Multiplica todos los elementos de la matriz por un numero e */
