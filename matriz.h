@@ -36,6 +36,9 @@ slist* new_matrix(slist* matrix, int n, int m);
 /* Muestra la matriz en la pantalla incluyendo los ceros */
 void print_matrix(slist* matrix);
 
+/* Muestra la matriz transpuesta en la pantalla incluyendo los ceros */
+void print_matrix_trans(slist* matrix);
+
 /* Multiplica todos los elementos de la matriz por un numero e */
 slist* prod_esc(int e, slist* matrix);
 
