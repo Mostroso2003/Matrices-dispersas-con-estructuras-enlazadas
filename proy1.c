@@ -6,15 +6,18 @@
 int main(void)
 {
     srand(time(NULL));
-    int n,m,x,elec;
+    int n,m,x,elec, elec2;
     slist* matriz1 = NULL;
+    slist* matriz_esc1 = NULL;
     slist* matriz2 = NULL;
     slist* matriz_esc2 = NULL;
-    /* INICIO MENU */
+
+
+
     elec=0;
     do{
-        printf("\n    MENU PROYECTO\n\n");
-        printf("Que operacion desea hacer\n");
+        printf("\n    ***MENU PROYECTO***\n\n");
+        printf("Que operacion desea efectuar con matrices usando listas enlazadas?\n");
         printf("(1) Obtener elemento de la matriz\n");
         printf("(2) Asignar un elemento a la matriz\n");
         printf("(3) Sumar\n");
@@ -22,8 +25,11 @@ int main(void)
         printf("(5) Producto\n");
         printf("(6) Transponer\n");
         printf("(7) Imprimir\n");
+        printf("\n");
+        printf("(8) Salir\n\n");
         printf("Opcion? ");
         scanf("%d",&elec);
+        if (elec < 1 || elec > 7) return(0);
         /* Creacion de la matriz */
         printf("Ingrese las dimensiones de la matriz que quiere crear\n");
         printf("Columnas: ");
@@ -34,7 +40,7 @@ int main(void)
             printf("Como desea crear la matriz\n");
             printf("(1) De forma manual\n");
             printf("(2) De forma automatica con valores 0 y 1\n");
-            printf("Eleccion: ");
+            printf("Opcion? ");
             scanf("%d",&elec2);
             if (elec2 == 1)
                 matriz1 = new_matrix(matriz1,n,m);
@@ -46,10 +52,10 @@ int main(void)
             /* Buscar elementos en la matriz */
             printf("\nNo se pueden buscar elementos en posiciones negativas\n");
             printf("o que sean mayores que las filas y/o las columnas de la matriz\n");
-            printf("Ingrese la posicion x: ");
-            scanf("%d",&m);
             printf("Ingrese la posicion y: ");
             scanf("%d",&n);
+            printf("Ingrese la posicion x: ");
+            scanf("%d",&m);
             printf("Se consiguio el valor %d en la posicion %dx%d\n",search(n,m,matriz1),m,n);
         }else if(elec == 2){
             /* Asignar elementos en la matriz */
@@ -65,7 +71,7 @@ int main(void)
             set_value(n,m,x,matriz1);
             print_matrix(matriz1);
 
-        /*Producto por escalar*/
+        /*Suma*/
         }else if(elec == 3){
             printf("La matriz2 tiene que tener las mismas dimensiones que la matriz1\n");
             printf("Ingrese las dimensiones de la matriz2 que quiere crear\n");
@@ -125,17 +131,13 @@ int main(void)
 
         /*Transponer*/
         }else if(elec == 6){
-            print_matrix(matriz1);
-
+            print_matrix(transpose(matriz1));
 
 
         /*Imprimir*/
         }else if(elec == 7){
             print_matrix(matriz1);
         }
-    } while (elec < 1 || elec > 7);
-    /* FIN MENU */
-   
-
+    } while (elec > 1 || elec < 7);
     return 0;
 }
