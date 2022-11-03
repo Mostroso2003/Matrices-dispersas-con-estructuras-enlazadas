@@ -70,6 +70,30 @@ slist* new_matrix(slist* matrix, int n, int m)
     return matrix;
 }
 
+/* Funcion para crear una matriz con n filas y m columnas de forma automatica con valores entre 0 y 1 */
+slist* new_matrix_auto(slist* matrix, int n, int m)
+{
+    
+    register int posY = 0, posX;
+    int value;
+    matrix = add_end_row(matrix,new_ptr_row(NULL,0,n,m));
+    slist* sptr = matrix;
+    while(posY < matrix->tam_y){
+        posX = 0;
+        while (posX < matrix->tam_x){
+            value = rand()%2;
+            if (value != 0){
+                sptr->row = add_end_item(sptr->row,new_item(value,posX));
+            }
+            posX++;
+        }
+
+        matrix = add_end_row(matrix,new_ptr_row(NULL,posY++,n,m));
+        sptr = sptr->next;
+    }
+    return matrix;
+}
+
 /* Muestra la matriz en la pantalla incluyendo los ceros */
 void print_matrix(slist* matrix)
 {
@@ -126,7 +150,7 @@ void print_list(slist* matrix)
         sptr = sptr->next;
         posY++;
     }
-    print("Filas no nulas: %d\n",contfilas)
+    printf("Filas no nulas: %d\n",contfilas);
 }
 
 /* Multiplica todos los elementos de la matriz por un numero e */
