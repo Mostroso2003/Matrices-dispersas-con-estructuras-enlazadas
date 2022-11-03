@@ -107,29 +107,6 @@ void print_matrix(slist* matrix)
     printf("\n");
 }
 
-/* Muestra la matriz en forma de lista */
-void print_list(slist* matrix)
-{
-    register int posY = 0, contfilas = 0; // contfilas contara las filas que contengan elementos distintos de cero
-    slist* sptr = matrix;
-    printf("Columnas de la matriz: %d\n",matrix->tam_x);
-    printf("Filas de la matriz: %d\n",matrix->tam_y);
-    printf("X:Y->Valor\n");
-    while (posY < matrix->tam_y){
-        node* ptr = sptr->row;
-        /* Pregunta si el puntero apunta hacia algun nodo, si no es asi entonce se saltara directamente a la siguiente fila */
-        if (ptr)
-            contfilas++;
-        while (ptr){
-            printf("%d:%d->%d\n",ptr->posicion_x+1,posY+1,ptr->value);
-            ptr = ptr->next;
-        }
-        sptr = sptr->next;
-        posY++;
-    }
-    printf("Filas no nulas: %d\n",contfilas);
-}
-
 /* Multiplica todos los elementos de la matriz por un numero e */
 slist* prod_esc(int e, slist* matrix)
 {
