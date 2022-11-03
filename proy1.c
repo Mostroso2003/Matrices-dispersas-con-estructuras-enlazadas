@@ -102,9 +102,8 @@ int main(void)
         }
         case 6: {
             /* Transponer */
-            slist* matriz_trans = transpose(matriz1);
             printf("\n");
-            print_matrix(matriz_trans);
+            print_matrix_trans(transpose(matriz1));
             break;
         }
     }
