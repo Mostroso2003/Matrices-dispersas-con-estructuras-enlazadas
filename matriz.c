@@ -152,16 +152,12 @@ int search(int i, int j, slist* matrix)
         return 0;
     /* Bucle que recorrera la fila en la que se encuentra sptr hasta la posicion j */
     while (ptr->next && posX < j){
-        if (posX < ptr->posicion_x)
-            posX++;
-        if (ptr->posicion_x == j)
+        if (ptr->posicion_x==j) 
             return ptr->value;
         ptr = ptr->next;
-        posX++;
     }
     if (ptr->posicion_x != j)
         return 0;
-    
     return ptr->value;
 }
 
